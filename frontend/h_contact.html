@@ -1,0 +1,115 @@
+<div style="display: none;">
+    {% load url}
+    {% load static %}
+  </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>h_contact</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Righteous:wght@400&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;700&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rounded+Mplus+1c:wght@400&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,700&display=swap" />
+    <link rel="stylesheet" href="{% static 'css/hc_style.css' %}" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="flex-row">
+        <div class="rectangle"></div>
+        <div class="regroup">
+          <a href="{% url 'signin' %}"><div class="rectangle-1"><span class="sign-in">sign in</span></div></a>
+          <a href="{% url 'signup' %}"><div class="rectangle-2"><span class="sign-up">sign up</span></div></a>
+        </div>
+        <div class="rectangle-3">
+          <div class="plane-logo"></div>
+          <span class="flight-match">FlightMatch</span>
+        </div>
+        <a href="{% url 'welcome' %}"><span class="welcome">welcome</span></a>
+        <a href="{% url 'h_about' %}"><span class="about">about</span></a>
+        <a href="{% url 'h_contact' %}"><span class="contact"><b>contact</b></span></a>
+        <span class="contact-us">CONTACT US</span>
+      </div>
+      <div class="rectangle-4">
+        <span class="hear-from-you">We’d Love to Hear From You!</span
+        ><span class="value-feedback"
+          >At FlightMatch, we value your feedback, questions, and suggestions.
+          Whether you need assistance, want to share your experience, or have
+          inquiries about our services, feel free to reach out to us.</span
+        ><span class="get-in-touch">Get in Touch</span
+        ><span class="here-for-you">We’re Here for You!</span
+        ><span class="seamless-travel-planning"
+          >Our team is committed to ensuring your travel planning is seamless
+          and stress-free. Feel free to drop us a message, and we’ll get back to
+          you as soon as possible.</span
+        >
+        <div class="contact-info">
+          <span class="feedback-inquiries"
+            >At FlightMatch, we value your feedback, questions, and suggestions.
+            Whether you need assistance, want to share your experience, or have
+            inquiries about our services, feel free to reach out to us.<br /><br /></span
+          ><span class="email">Email Us:</span
+          ><span class="feedback-inquiries-5">
+            <br />
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=flightmatch30@gmail.com"target="_blank">
+              support@flightmatch.com</a><br /></span
+          ><span class="email-6"><br />Call Us:<br></span
+          ><span class="feedback-inquiries-7">
+            <br />
+            7907628378<br>9188486986<br>8089789897<br>8089124186<br><br></span
+          ><span class="email-8">Follow Us on Social Media:</span
+          ><span class="stay-connected">
+            <br />Stay connected and updated with our latest deals and travel
+            tips!<br /><br />
+            <a href="https://www.facebook.com/share/1F444PtsAQ/?mibextid=wwXIfr"target="_blank">Facebook</a><br /><br />
+            <a href="https://x.com/flightmatch?s=11"target="_blank">Twitter</a><br /><br /></a>
+            <a href="https://www.instagram.com/flig.htmatch?igsh=b25ldmFha3d4MDFy&utm_source=qr"target="_blank">Instagram</a><br /><br />
+            <a href="https://www.linkedin.com/in/flight-match-55498734b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"target="_blank">LinkedIn</a></span
+          >
+        </div>
+        <div class="mail"></div>
+        <div class="call"></div>
+        <div class="facebook"></div>
+        <div class="x-logo"></div>
+        <div class="logo-instagram"></div>
+        <div class="linkedin"></div>
+      </div>
+      <div class="flex-row-b">
+        <span class="flight-match-9">FlightMatch</span
+        ><span class="quick-links">Quick Links</span
+        ><span class="legal">Legal</span
+        ><span class="contact-us-a">Contact us</span>
+      </div>
+      <div class="flex-row-d">
+        <span class="home-about-search">
+          <a href="{% url 'signin' %}">Home</a>
+          <br>
+          <a href="{% url 'h_about' %}">About</a>
+          <br>
+          <a href="{% url 'signin' %}">Search Flights</a>
+        </span>
+        <div class="regroup-11">
+          <span class="privacy-terms">
+            <a href="{% url 'pr' %}"target="_blank">Privacy Policy</a>
+            <br>
+            <a href="{% url 'tnc' %}"target="_blank">Terms & Conditions</a>
+          </span>
+          <span class="email-linkedin-instagram">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=flightmatch30@gmail.com"target="_blank">Email</a>
+            <br>
+            <a href="https://www.linkedin.com/in/flight-match-55498734b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"target="_blank">LinkedIn</a>
+            <br>
+            <a href="https://www.instagram.com/flig.htmatch?igsh=b25ldmFha3d4MDFy&utm_source=qr"target="_blank">Instagram</a>
+            <br>
+            <a href="https://x.com/flightmatch?s=11"target="_blank">Twitter</a>
+          </span>
+        </div>
+      </div>
+      <span class="all-rights-reserved"
+        >© 2025 www.flightmatch.com - All Rights Reserved.</span
+      >
+      <div class="rectangle-c"></div>
+    </div>
+  </body>
+</html>

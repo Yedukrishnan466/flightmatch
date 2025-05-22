@@ -1,0 +1,123 @@
+<div style="display: none;">
+    {% load url}
+    {% load static %}
+  </div><!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>about</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Righteous:wght@400&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;700&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rounded+Mplus+1c:wght@400&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,700&display=swap" />
+    <link rel="stylesheet" href="{% static 'css/a_style.css' %}" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="flex-row-cdd">
+        <span class="about-us">ABOUT US</span>
+        <div class="rectangle"></div>
+        <span class="ab">{{ p_name }}</span>
+        <div class="rectangle-1">
+          <div class="minimalist-cartoonistic-artistic">
+            <div class="minimalist-cartoonistic-artistic-2"></div>
+          </div>
+          <span class="flight-match">FlightMatch</span>
+        </div>
+        <a href="{% url 'contact' %}"><span class="contact">contact</span></a>
+        <a href="{% url 'home' %}"><span class="home">home</span></a>
+        <a href="{% url 'about' %}"><span class="about-3"><b>about</b></span></a>
+        <a href="{% url 'logout' %}"><span class="log-out">log out</span></a>
+      </div>
+      <div class="prof_oval"></div>
+      <div class="rectangle-4">
+        <span class="who-we-are">Who We Are</span
+        ><span class="welcome-to-flightmatch"
+          >Welcome to FlightMatch, your trusted travel companion in finding the
+          best flight deals. <br />We’re a platform dedicated to simplifying
+          your travel planning by bringing you real-time ticket prices from top
+          booking sites, all in one place.</span
+        >
+      </div>
+      <div class="rectangle-5">
+        <span class="what-we-do">What We Do</span
+        ><span class="mission-simple"
+          >Our mission is simple: to help you find the perfect flight at the
+          best price. By tracking fares from leading flight booking platforms,
+          we provide you with a comprehensive list of options sorted by price,
+          class, and availability. With just a few clicks, you’ll be redirected
+          to the official booking site to secure your tickets.</span
+        >
+      </div>
+      <div class="rectangle-6">
+        <span class="why-choose-us">Why Choose Us?</span>
+        <div class="unbeatable-deals">
+          <span class="unbeatable-deals-7"><b>Unbeatable Deals</b></span
+          ><span class="unbeatable-deals-8">
+            : We compare fares across multiple platforms to ensure you get the
+            best value.<br /><b style="font-weight: 900;">Ease of Use</b> : Our intuitive search feature allows
+            you to find flights quickly based on your preferences.<br /></span
+          ><span class="unbeatable-deals-9"><b>Transparency</b></span
+          ><span class="unbeatable-deals-a">
+            : No hidden fees—what you see is what you get.<br /></span
+          ><span class="unbeatable-deals-b"><b>Reliability</b></span
+          ><span class="reliability">
+            : Partnering with trusted booking platforms ensures a secure and
+            smooth booking experience.</span
+          >
+        </div>
+      </div>
+      <div class="rectangle-c">
+        <span class="our-vision">Our Vision</span>
+        <div class="flightmatch-belief">
+          <span class="flightmatch-belief-d"
+            >At FlightMatch, we believe that travel should be accessible to
+            everyone. Whether you’re planning a budget getaway or a luxurious
+            adventure, our goal is to help you fly smarter, faster, and
+            cheaper.<br /></span
+          ><span class="get-you-flying">Let’s Get You Flying!</span
+          ><span class="start-journey">
+            Start your journey with us and discover how easy and rewarding
+            booking flights can be. Adventure is just a click away!</span
+          >
+        </div>
+      </div>
+      <div class="flex-row-a">
+        <span class="flightmatch">FlightMatch</span
+        ><span class="quick-links">Quick Links</span
+        ><span class="legal">Legal</span
+        ><span class="contact-us">Contact us</span>
+      </div>
+      <div class="flex-row">
+        <span class="home-about-search">
+          <a href="{% url 'home' %}">Home</a>
+          <br>
+          <a href="{% url 'about' %}">About</a>
+          <br>
+          <a href="{% url 'home' %}">Search Flights</a>
+        </span>
+        <div class="regroup">
+          <span class="privacy-terms">
+            <a href="{% url 'pr' %}"target="_blank">Privacy Policy</a>
+            <br>
+            <a href="{% url 'tnc' %}"target="_blank">Terms & Conditions</a>
+          </span>
+          <span class="email-linkedin-instagram">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=flightmatch30@gmail.com"target="_blank">Email</a>
+            <br>
+            <a href="https://www.linkedin.com/in/flight-match-55498734b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"target="_blank">LinkedIn</a>
+            <br>
+            <a href="https://www.instagram.com/flig.htmatch?igsh=b25ldmFha3d4MDFy&utm_source=qr"target="_blank">Instagram</a>
+            <br>
+            <a href="https://x.com/flightmatch?s=11"target="_blank">Twitter</a>
+          </span>
+        </div>
+      </div>
+      <span class="all-rights-reserved"
+        >© 2025 www.flightmatch.com - All Rights Reserved.</span
+      >
+      <div class="rectangle-e"></div>
+    </div>
+  </body>
+</html>

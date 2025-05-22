@@ -1,0 +1,262 @@
+<div style="display: none;">
+    {% load url}
+    {% load static %}
+  </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>results</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Righteous:wght@400&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rounded+Mplus+1c:wght@400&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,700&display=swap" />
+    <link rel="stylesheet" href="{% static 'css/r_style.css' %}" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="flex-row-cb">
+        <span class="ab">{{ p_name }}</span>
+        <div class="rectangle">
+          <div class="minimalist-cartoonistic-artistic">
+            <div class="minimalist-cartoonistic-artistic-1"></div>
+          </div>
+          <button class="flightmatch">FlightMatch</button>
+        </div>
+        <a href="{% url 'contact' %}"><span class="contact">contact</span></a>
+        <a href="{% url 'home' %}"><span class="home">home</span></a>
+        <a href="{% url 'about' %}"><span class="about">about</span></a>
+        <a href="{% url 'logout' %}"><span class="log-out">log out</span></a>
+      </div>
+      <div class="prof_oval"></div>
+      <span class="search-results">Search Results</span>
+      <span class="top-results-for-your-search">
+        Top Results for Your Search
+      </span>
+      <span class="explore-the-best-flights-we-found">
+        Explore the Best Flights We Found</span>
+        <div class="sorting-options">
+          <div class="price" onclick="sortResults('price')">Price</div>
+          <div class="fastest" onclick="sortResults('fastest')">Fastest</div>
+          <div class="departure" onclick="sortResults('departure')">Departure</div>
+          <div class="best" onclick="sortResults('best')">Best</div>
+        </div>
+      <script>
+          document.addEventListener("DOMContentLoaded", function () {
+          const sortingOptions = document.querySelectorAll(".sorting-options div");
+          const urlParams = new URLSearchParams(window.location.search);
+          const currentSort = urlParams.get("sort_by") || "best";
+
+          sortingOptions.forEach(option => {
+            if (option.classList.contains(currentSort)) {
+              option.classList.add("selected");
+            } else {
+              option.classList.remove("selected");
+            }
+
+            option.addEventListener("click", function () {
+              sortingOptions.forEach(opt => opt.classList.remove("selected"));
+              this.classList.add("selected");
+            });
+          });
+        });
+
+      </script>
+      <script>
+        function sortResults(sortBy) {
+          const url = new URL(window.location.href);
+          url.searchParams.set("sort_by", sortBy);
+          window.location.href = url.toString();
+        }
+      </script>
+      
+      <form method="get" id="filterForm">
+        <div class="filter-options">
+          <div class="filter-title">Filter Options</div>
+          <hr class="filter-line">
+      
+          <!-- Stops -->
+          <div class="Stops-filter">STOPS</div>
+          <div class="stop-filter-checkboxes">
+            <label><input type="checkbox" name="stops" value="Non-stop" {% if "Non-stop" in selected_stops %}checked{% endif %}> Non-Stop</label>
+            <label><input type="checkbox" name="stops" value="1 stop" {% if "1 stop" in selected_stops %}checked{% endif %}> 1 Stop</label>
+            <label><input type="checkbox" name="stops" value="2 stops" {% if "2 stops" in selected_stops %}checked{% endif %}> 2+ Stops</label>
+          </div>
+      
+          <!-- Departure -->
+          <div class="departure-filter">DEPARTURE</div>
+          <div class="departure-options">
+            <label><input type="radio" name="departure_range" value="before_6" {% if selected_departure_range == "before_6" %}checked{% endif %}> Before 6 AM</label>
+            <label><input type="radio" name="departure_range" value="6_12" {% if selected_departure_range == "6_12" %}checked{% endif %}> 6 AM to 12 PM</label>
+            <label><input type="radio" name="departure_range" value="12_18" {% if selected_departure_range == "12_18" %}checked{% endif %}> 12 PM to 6 PM</label>
+            <label><input type="radio" name="departure_range" value="after_18" {% if selected_departure_range == "after_18" %}checked{% endif %}> After 6 PM</label>
+          </div>
+      
+          <!-- Food -->
+          <div class="food-filter">FOOD AVAILABILITY</div>
+          <div class="food-filter-checkbox">
+            <label><input type="checkbox" name="food" value="free_meal" {% if 'free_meal' in selected_food %}checked{% endif %}> Free Meal</label>
+          </div>  
+      
+          <!-- Sort by (hidden input so it persists) -->
+          <input type="hidden" name="sort_by" value="{{ sort_by }}">
+      
+          <!-- Submit button -->
+          
+        </div>
+      </form>
+      <script>
+        document.querySelectorAll('#filterForm input').forEach(input => {
+          input.addEventListener('change', function () {
+            document.getElementById('filterForm').submit();
+          });
+        });
+      </script>
+      
+
+      <div id="result-container">
+        {% for flight in flights %}
+        <div class="flex-row-fd"> <!-- This should be inside the loop -->
+            <a class="rectangle-2" href="{{ flight.flight_page_url }}" target="_blank">
+                <span class="go-to-site">Go to Site</span>
+            </a>
+            <div class="card">
+                <img class="image" src="{{ flight.flight_image_url }}" />
+                <div class="body">
+                        <span class="title">{{ flight.flight_title }}</span>
+                        
+                        <div class="duration-line-container">
+                          <div class="departure_time">{{ flight.flight_departure }}</div>
+                          <div class="circle left-circle"></div>
+                          <div class="duration-line"></div>
+                          <div class="time-duration">{{ flight.flight_duration }}</div>
+                          <div class = "stop_type">{{ flight.stop_type }}</div>  
+                          <div class="circle right-circle"></div>
+                          <div class="arrival_time">{{ flight.flight_arrival }}</div>
+                        </div>
+                        <div class="fr-lc">
+                          {{ flight.fr_lc }}
+                        </div>
+                        <div class="to-lc">
+                          {{ flight.to_lc }}
+                        </div>
+                        <div class="rs_cntr">
+                          <div class="result_price">{{ flight.flight_price }}</div>
+                        </div> 
+                        <div class="rs_site_name">
+                          {{ flight.site_name }}
+                        </div>   
+                        <div class="free_meals">
+                          {{ flight.free_meal }}
+                        </div>  
+                                         
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>No flights found.</p>
+        {% endfor %}
+    </div>
+     <!-- Container to hold all result bars -->
+
+      <!--<script>
+        const container = document.getElementById("result-container");
+
+        for (let i = 0; i < 14; i++) {
+          let resultBar = document.createElement("div");
+          resultBar.classList.add("flex-row-fd");
+
+          resultBar.innerHTML = `
+            <div class="rectangle-2">
+              <span class="go-to-site">Go to Site</span>
+            </div>
+            <div class="card">
+              <div class="image"></div>
+              <div class="body">
+                <div class="text">
+                  <span class="title">Title</span>
+                  <span class="text-b">
+                    Body text for whatever you’d like to say. Add main takeaway
+                    points, quotes, anecdotes, or even a very very short story.
+                  </span>
+                </div>
+              </div>
+            </div>
+          `;
+
+          container.appendChild(resultBar);
+        }
+      </script>-->
+      
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const options = document.querySelectorAll(".option-to-select");
+      
+          options.forEach(option => {
+            option.addEventListener("click", function () {
+              this.classList.toggle("selected"); // Toggle blue background
+            });
+          });
+        });
+      
+        function adjustMainContainerHeight() {
+          let resultContainer = document.getElementById("result-container");
+          let mainContainer = document.querySelector(".main-container");
+          let filterOptions = document.querySelector(".filter-options");
+      
+          if (resultContainer && mainContainer) {
+            let resultHeight = resultContainer.offsetHeight;
+            mainContainer.style.height = (resultHeight + 900) + "px";  // Set the main container height
+      
+            // ✅ Set the filter-options height too (resultHeight + 100)
+            if (filterOptions) {
+              filterOptions.style.height = (resultHeight + 208) + "px";
+            }
+          }
+        }
+      
+        // Run on page load and window resize
+        window.onload = adjustMainContainerHeight;
+        window.onresize = adjustMainContainerHeight;
+      </script>
+      <div class="flex-row-e">
+        <span class="flight-match">FlightMatch</span
+        ><span class="quick-links">Quick Links</span
+        ><span class="legal">Legal</span
+        ><span class="contact-us">Contact us</span>
+      </div>
+      <div class="flex-row-b-73">
+        <span class="home-about-search-flights">
+          <a href="{% url 'home' %}">Home</a>
+          <br>
+          <a href="{% url 'about' %}">About</a>
+          <br>
+          <a href="{% url 'home' %}">Search Flights</a>
+        </span>
+        <div class="regroup">
+          <span class="privacy-policy-terms">
+            <a href="{% url 'pr' %}"target="_blank">Privacy Policy</a>
+            <br>
+            <a href="{% url 'tnc' %}"target="_blank">Terms & Conditions</a>
+          </span>
+          <span class="email-linkedin-instagram">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=flightmatch30@gmail.com"target="_blank">Email</a>
+              <br>
+              <a href="https://www.linkedin.com/in/flight-match-55498734b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"target="_blank">LinkedIn</a>
+              <br>
+              <a href="https://www.instagram.com/flig.htmatch?igsh=b25ldmFha3d4MDFy&utm_source=qr"target="_blank">Instagram</a>
+              <br>
+              <a href="https://x.com/flightmatch?s=11"target="_blank">Twitter</a>
+          </span>
+        </div>
+      </div>
+      <span class="all-rights-reserved"
+        >© 2025 www.flightmatch.com - All Rights Reserved.</span
+      >
+      <div class="bg"></div>
+      <div class="rectangle-74"></div>
+    </div>
+  </body>
+</html>

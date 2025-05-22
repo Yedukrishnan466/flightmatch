@@ -1,0 +1,87 @@
+<div style="display: none;">
+  {% load url}
+  {% load static %}
+</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>welcome</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Righteous:wght@400&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;700&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rounded+Mplus+1c:wght@400&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oooh+Baby:wght@400&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,700&display=swap" />
+    <link rel="stylesheet" href="{% static 'css/w_style.css' %}" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="flex-row-dceb">
+        <div class="rectangle">
+          <div class="minimalist-cartoonistic-artistic"></div>
+          <span class="flight-match">FlightMatch</span>
+        </div>
+        <div class="regroup">
+          <a href="{% url 'signin' %}">
+          <div class="rectangle-1"><span class="sign-in">sign in</span></div></a>
+          <a href="{% url 'signup' %}">
+          <div class="rectangle-2"><span class="sign-up">sign up</span></div></a>
+        </div>
+        <a class="welcome-3" href="#"><b>welcome</b></a>
+        <a class="about" href="{% url 'h_about' %}">about</a>
+        <a class="contact" href="{% url 'h_contact' %}">contact</a>
+      </div>
+      <span class="welcome-to">Welcome to</span
+      ><span class="flight-match-4">FLIGHTMATCH</span
+      ><span class="ultimate-flight-deal-finder"
+        >Your Ultimate Flight Deal Finder</span
+      >
+      <div class="flex-row-f">
+        <a href="{% url 'signin' %}"><div class="rectangle-5"><span class="sign-in-6">sign in</span></div></a>
+        <a href="{% url 'signup' %}"><div class="rectangle-7"><span class="sign-up-8">sign up</span></div></a>
+      </div>
+      <div class="flex-row">
+        <span class="flight-match-9">FlightMatch</span>
+        <span class="quick-links">Quick Links</span>
+        <span class="legal">Legal</span>
+        <span class="contact-us">Contact us</span>
+      </div>
+      <div class="flex-row-fc">
+        <span class="home-about-search">
+          <a href="{% url 'signin' %}">Home</a>
+          <br>
+          <a href="{% url 'h_about' %}">About</a>
+          <br>
+          <a href="{% url 'signin' %}">Search Flights</a>
+          <br>
+        </span>
+        <div class="regroup-a">
+          <span class="privacy-policy-terms">
+            <a href="{% url 'pr' %}"target="_blank">Privacy Policy</a>
+            <br>
+            <a href="{% url 'tnc' %}"target="_blank">Terms & Conditions</a>
+          </span>
+          <span class="social-media-links">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=flightmatch30@gmail.com"target="_blank">Email</a>
+            <br>
+            <a href="https://www.linkedin.com/in/flight-match-55498734b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"target="_blank">LinkedIn</a>
+            <br>
+            <a href="https://www.instagram.com/flig.htmatch?igsh=b25ldmFha3d4MDFy&utm_source=qr"target="_blank">Instagram</a>
+            <br>
+            <a href="https://x.com/flightmatch?s=11"target="_blank">Twitter</a>
+          </span>
+        </div>
+      </div>
+      <span class="copyright"
+        >© 2025 www.flightmatch.com - All Rights Reserved.</span
+      >
+      <div class="bg">
+        <video autoplay loop muted>
+          <source src="{% static 'videos/W_video.mp4' %}" type="video/mp4">
+        </video>
+      </div>
+      <div class="rectangle-b"></div>
+    </div>
+  </body>
+</html>

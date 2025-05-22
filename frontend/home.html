@@ -1,0 +1,417 @@
+<div style="display: none;">
+    {% load url}
+    {% load static %}
+  </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>home</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Righteous:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rounded+Mplus+1c:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oooh+Baby:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,700&display=swap" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="{% static 'css/h_style.css' %}" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="flex-row-de">
+        <span class="ab">{{ p_name }}</span>
+        <div class="rectangle">
+          <div class="minimalist-cartoonistic-artistic">
+            <div class="minimalist-cartoonistic-artistic-1"></div>
+          </div>
+          <span class="flight-match">FlightMatch</span>
+        </div>
+        <a href="{% url 'contact' %}"><span class="contact">contact</span></a>
+        <a href="{% url 'home' %}"><span class="home-2"><b>home</b></span></a>
+        <a href="{% url 'about' %}"><span class="about">about</span></a>
+        <a href="{% url 'logout' %}"><span class="log-out">log out</span></a>
+      </div>
+      <div class="prof_oval"></div>
+      <span class="flight-match-3">FLIGHTMATCH</span>
+      <span class="your-ultimate-flight-deal-finder">
+        Your Ultimate Flight Deal Finder
+      </span>
+      <span class="ready-to-find-your-perfect-flight">
+        Ready to find your perfect flight?
+      </span>
+      <div class="dropdown-box" id="dropdown">
+        <div class="counter">
+          <label>Adults (12+ yrs)</label>
+          <div class="btn-group">
+            <button class="btn" onclick="changeCount('adults', -1)">-</button>
+            <span id="adults-count">1</span>
+            <button class="btn" onclick="changeCount('adults', 1)">+</button>
+          </div>
+        </div>
+    
+        <div class="counter">
+          <label>Children (2-12 yrs)</label>
+          <div class="btn-group">
+            <button class="btn" onclick="changeCount('children', -1)">-</button>
+            <span id="children-count">0</span>
+            <button class="btn" onclick="changeCount('children', 1)">+</button>
+          </div>
+        </div>
+    
+        <div class="counter">
+          <label>Infants (0-2 yrs)</label>
+          <div class="btn-group">
+            <button class="btn" onclick="changeCount('infants', -1)">-</button>
+            <span id="infants-count">0</span>
+            <button class="btn" onclick="changeCount('infants', 1)">+</button>
+          </div>
+        </div>
+    
+        <div class="class-buttons">
+          <button class="btn" onclick="selectClass('Economy')">Economy</button>
+          <button class="btn" onclick="selectClass('Premium Economy')">Premium Economy</button>
+          <button class="btn" onclick="selectClass('Business')">Business</button>
+          <button class="btn" onclick="selectClass('First Class')">First Class</button>
+        </div>
+    
+        <button class="select-btn" onclick="updateSelection()">Select</button>
+      </div>
+      <script>
+        let counts = { adults: 1, children: 0, infants: 0 };
+        let travelClass = "Economy";
+      
+        function toggleDropdown() {
+          let dropdown = document.getElementById("dropdown");
+          dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        }
+
+        function changeCount(type, change) {
+          let countElement = document.getElementById(type + "-count");
+          let count = parseInt(countElement.innerText);
+          
+          if ((type === "adults" && count + change >= 1 && count + change <= 9) ||
+              (type === "children" && count + change >= 0 && count + change <= 8) ||
+              (type === "infants" && count + change >= 0 && count + change <= 4)) {
+            countElement.innerText = count + change;
+          }
+        }
+
+        function selectClass(selectedClass) {
+          let buttons = document.querySelectorAll(".class-buttons button");
+          buttons.forEach(btn => btn.classList.remove("selected"));
+          
+          let selectedButton = Array.from(buttons).find(btn => btn.innerText === selectedClass);
+          if (selectedButton) selectedButton.classList.add("selected");
+        }
+
+        function updateSelection() {
+          let adults = document.getElementById("adults-count").innerText;
+          let children = document.getElementById("children-count").innerText;
+          let infants = document.getElementById("infants-count").innerText;
+          let selectedClass = document.querySelector(".class-buttons .selected")?.innerText || "Economy";
+
+          let summary = `${adults} Adults, ${children} Children, ${infants} Infants, ${selectedClass}`;
+          document.getElementById("selection-summary").value = summary;
+
+          // Dropdown closes only after clicking Select
+          document.getElementById("dropdown").style.display = "none";
+        }
+
+      </script>
+      <form method="POST" action="{% url 'home' %}">
+        {% csrf_token %}
+      <div class="rectangle-4">
+        <span class="start-searching-now">Start Searching Now!</span>
+        <div class="flex-row-e">
+          <div class="radio-field">
+            <div class="checkbox-and-label">
+              <input type="radio" name="trip-type" id="one-way" class="radio" value="one-way" checked onclick="clearReturnDate()">
+              <label for="one-way" class="label">One Way</label>
+            </div>
+          </div>
+          <div class="radio-field-5">
+            <div class="checkbox-and-label-6">
+              <input type="radio" name="trip-type" id="round-trip" class="radio-7" value="round-trip">
+              <label for="round-trip" class="label-8">Round Trip</label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="result-box" id="from-result-box"></div>
+        <div class="result-box" id="to-result-box"></div>
+
+        <div class="flex-row-e-9">
+          <div class="rectangle-a">
+            <span class="travellers-class">TRAVELLERS & CLASS</span>
+            <span class="departure">DEPARTURE</span>
+            <span class="return">RETURN</span>
+            <span class="from">FROM</span>
+            <span class="to">TO</span>
+
+            <div class="From-field">
+              <input type="text" name="from_city" id="from_city" placeholder="Enter City Name" class="from-field-text"
+                onfocus="this.placeholder=''" onblur="this.placeholder='Enter City Name'" required />
+            </div>
+
+            <div class="To-field">
+              <input type="text" name="to_city" id="to_city" placeholder="Enter City Name" class="to-field-text"
+                onfocus="this.placeholder=''" onblur="this.placeholder='Enter City Name'" required />
+            </div>
+
+            <!-- This is the second result box for 'to_city' -->
+            
+
+            <script src="{% static 'autocomplete.js' %}"></script>
+      
+              
+              <div class="Dprt-field">
+                  <input type="text" name="departure_date" id="departure_date" placeholder="DD/MM/YYYY" class="dprt-field-text"
+                      onfocus="this.placeholder=''" onblur="this.placeholder='DD/MM/YYYY'" required />
+              </div>  
+              
+              <div class="Rtrn-field">
+                  <input type="text" id="return_date" name="return_date" placeholder="DD/MM/YYYY" class="rtrn-field-text" 
+                      onfocus="this.placeholder=''; toggleRoundTrip()" 
+                      onblur="this.placeholder='DD/MM/YYYY'" />
+              </div>
+          
+              <div class="T-n-c-dropdown" onclick="toggleDropdown()">
+                  <input autocomplete="off" type="text" id="selection-summary" name="traveller_details" placeholder="Select Travelers" class="rtrn-field-text" required>
+              </div>
+          
+              <button type="submit" class="rectangle-32">
+                <span class="search">Search</span>
+              </button>
+          
+          </div>
+          <div class="line"></div>
+          <div class="line-b"></div>
+          <div class="line-c"></div>
+          <div class="line-d"></div>
+        </div>
+        <!-- Flatpickr and Day.js -->
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        <script src="https://cdn.jsdelivr.net/npm/dayjs/dayjs.min.js"></script>
+        <script>
+          // Initialize Flatpickr for Departure Date
+          flatpickr("#departure_date", {
+            dateFormat: "d/m/Y",
+            minDate: "today", // Disable past dates
+            position: "auto center",
+            mode: "single",
+            showMonths: 2, // Show Two Months Side-by-Side
+            maxDate: new Date().fp_incr(365),  // Allow booking up to 1 year in advance
+            onChange: function(selectedDates, dateStr) {
+              console.log("Selected Departure Date:", dateStr);
+            }
+          });
+
+          // Initialize Flatpickr for Return Date
+          flatpickr("#return_date", {
+              dateFormat: "d/m/Y",
+              minDate: "today",
+              position: "auto center",
+              mode: "single",
+              showMonths: 2, // Show Two Months Side-by-Side
+              maxDate: new Date().fp_incr(365),  // Allow booking up to 1 year in advance
+              onChange: function(selectedDates, dateStr) {
+                  console.log("Selected Return Date:", dateStr);
+              }
+          });
+
+          // Format Dates Using Day.js (Optional)
+          function formatDate(date) {
+              return dayjs(date).format("DD/MM/YYYY");
+          }
+
+        </script>
+        <span class="special-fare"
+          >Select a special fare for extra savings</span
+        >
+        <div class="flex-row-ae">
+          <div class="rectangle-e" onclick="toggleRegular()">
+            <div class="radio-field-f">
+              <div class="checkbox-label">
+                <input type="radio" name="fare-option" id="regular" class="radio-10" value="regular" checked>
+                <label for="regular" class="label-11">Regular</label>
+              </div>
+              <div class="description-row">
+                <div class="space"></div>
+                <span class="description">Regular fares</span>
+              </div>
+            </div>
+            <script>
+              function toggleRegular() {
+                document.getElementById("regular").checked = true;
+              }
+              function toggleRoundTrip() {
+                document.getElementById("round-trip").checked = true;
+              }
+              function clearReturnDate() {
+                document.getElementById("return_date").value = "";
+              }
+            </script>
+          </div>
+          <div class="rectangle-12"onclick="toggleStudent()">
+            <div class="radio-field-13">
+              <div class="checkbox-label-14">
+                <input type="radio" name="fare-option" id="student" class="radio-15" value="student">
+                <label for="student" class="label-16">Student</label>
+              </div>
+              <div class="description-row-17">
+                <div class="space-18"></div>
+                <span class="description-19">Extra discounts/baggage</span>
+              </div>
+            </div>
+            <script>
+              function toggleStudent() {
+                document.getElementById("student").checked = true;
+              }
+            </script>
+          </div>
+          <div class="rectangle-1a"onclick="toggleSenior()">
+            <div class="radio-field-1b">
+              <div class="checkbox-label-1c">
+                <input type="radio" name="fare-option" id="senior" class="radio-1d" value="senior-citizen">
+                <label for="senior" class="label-1e">Senior Citizen</label>
+              </div>
+              <div class="description-row-1f">
+                <div class="space-20"></div>
+                <span class="description-21">Up to ₹ 600 off</span>
+              </div>
+            </div>
+            <script>
+              function toggleSenior() {
+                document.getElementById("senior").checked = true;
+              }
+            </script>
+          </div>
+        </div>
+      </div>
+      </form>
+      <span class="todays-top-deals">Today’s Top Deals for You!</span
+      ><span class="best-offers">Best Offers to Book Now!</span>
+      <div class="rectangle-33">
+        <div class="makemytrip"></div>
+        <div class="flex-row-ddab">
+          <div class="card">
+            <div class="image"></div>
+            <div class="body">
+              <div class="text">
+                <span class="title"style="font-size: xx-large;">Hissar, Haryana</span
+                ><span class="body-text"style="font-size: x-large;"><br>Fri, 25 Apr <br><br>₹1,199 onwards</b>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="card-34">
+            <div class="image-35"></div>
+            <div class="body-36">
+              <div class="text-37">
+                <span class="title-38"style="font-size: xx-large;">Bathinda, Punjab</span
+                ><span class="body-text-39"
+                style="font-size: x-large;"><br>Wed, 16 Apr <br><br>₹2,100
+
+                onwards</b></span>
+              </div>
+            </div>
+          </div>
+          <div class="card-3a">
+            <div class="image-3b"></div>
+            <div class="body-3c">
+              <div class="text-3d">
+                <span class="title-3e"style="font-size: xx-large;">Jaipur, Rajasthan</span
+                ><span class="body-text-3f"
+                style="font-size: x-large;"><br>Tue, 20 May <br><br>₹2,298 onwards</b></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="https://www.ixigo.com/"target="blank"><button class="rectangle-40">
+          <span class="check-out">Check Out</span>
+        </button></a>
+      </div>
+      <div class="rectangle-41">
+        <button class="ixigo"></button>
+        <div class="flex-row-b">
+          <div class="card-42">
+            <div class="image-43"></div>
+            <div class="body-44">
+              <div class="text-45">
+                <span class="title-46"style="font-size: x-large;">Chennai to Bali</span
+                ><span class="body-text-47"style="font-size: large;"><br>Round-trip<br>May 16, 2025 - May 19, 2025<br>From
+                  ₹ 32,851</b>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="card-48">
+            <div class="image-49"></div>
+            <div class="body-4a">
+              <div class="text-4b">
+                <span class="title-4c"style="font-size: x-large;">Chennai to Singapore</span
+                ><span class="body-text-4d"style="font-size: large;"><br>Round-trip<br>May 13, 2025 - May 16, 2025<br>From
+                  ₹ 20,674</b></span>
+              </div>
+            </div>
+          </div>
+          <div class="card-4e">
+            <div class="image-4f"></div>
+            <div class="body-50">
+              <div class="text-51">
+                <span class="title-52"style="font-size: x-large;">New Delhi to Hong Kong</span
+                ><span class="body-text-53"style="font-size: large;"><br>Round-trip<br>Jul 6, 2025 - Jul 9, 2025<br>From
+                  ₹ 29,085</b></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="https://in.trip.com/sale/w/19623/singaporeaielines.html?locale=en-in&curr=inr&transparentBar=1&promo_referer=10000146_19623_1"target = "blank"><button class="rectangle-54">
+          <span class="check-out-55">Check Out</span>
+        </button></a>
+      </div>
+      
+      <div class="flex-row-be">
+        <span class="flight-match-6b">FlightMatch</span
+        ><span class="quick-links">Quick Links</span
+        ><span class="legal">Legal</span
+        ><span class="contact-us">Contact us</span>
+      </div>
+      <div class="flex-row-ff">
+        <span class="home-about-search-flights">
+          <a href="{% url 'home' %}">Home</a>
+          <br>
+          <a href="{% url 'about' %}">About</a>
+          <br>
+          <a href="{% url 'home' %}">Search Flights</a>
+        </span>
+        <div class="regroup">
+          <span class="privacy-policy-terms">
+            <a href="{% url 'pr' %}"target="_blank">Privacy Policy</a>
+            <br>
+            <a href="{% url 'tnc' %}"target="_blank">Terms & Conditions</a>
+          </span>
+          <span class="email-linkedin-instagram">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=flightmatch30@gmail.com"target="_blank">Email</a>
+            <br>
+            <a href="https://www.linkedin.com/in/flight-match-55498734b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"target="_blank">LinkedIn</a>
+            <br>
+            <a href="https://www.instagram.com/flig.htmatch?igsh=b25ldmFha3d4MDFy&utm_source=qr"target="_blank">Instagram</a>
+            <br>
+            <a href="https://x.com/flightmatch?s=11"target="_blank">Twitter</a>
+            </span>
+        </div>
+      </div>
+      <span class="all-rights-reserved"
+        >© 2025 www.flightmatch.com - All Rights Reserved.</span
+      >
+      <div class="bg">
+        <video autoplay muted loop>
+          <source src="{% static 'videos/home_video.mp4' %}" type="video/mp4">
+        </video>
+      </div>
+      <div class="rectangle-6c"></div>
+    </div>
+  </body>
+</html>

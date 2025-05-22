@@ -1,0 +1,51 @@
+<div style="display: none;">
+    {% load url}
+    {% load static %}
+  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlightMatch - Terms and Conditions</title>
+  <link rel="stylesheet" href="{% static 'css/tnc_style.css' %}" />
+</head>
+<body>
+  <header>
+    <h1>FlightMatch</h1>
+    <p>Your Partner in Finding the Best Flight Deals</p>
+  </header>
+
+  <main>
+    <section class="terms-container">
+      <h2>Terms and Conditions</h2>
+      <p>Welcome to FlightMatch! By using our website, you agree to comply with and be bound by the following terms and conditions. Please read them carefully.</p>
+
+      <h3>1. Acceptance of Terms</h3>
+      <p>By accessing or using FlightMatch, you agree to these Terms and Conditions. If you do not agree, please refrain from using our services.</p>
+
+      <h3>2. Service Description</h3>
+      <p>FlightMatch is a flight fare tracking system that gathers flight fare information and redirects users to official flight ticket booking platforms such as ixigo, Goibibo, and MakeMyTrip. We do not sell tickets directly but help you find the best deals.</p>
+
+      <h3>3. User Responsibilities</h3>
+      <p>You agree to use FlightMatch only for lawful purposes. You must not misuse the site or attempt to gain unauthorized access to our systems.</p>
+
+      <h3>4. Privacy Policy</h3>
+      <p>Your use of FlightMatch is also governed by our <a href="{% url 'pr' %}">Privacy Policy</a>, which explains how we collect, use, and protect your information.</p>
+
+      <h3>5. Limitation of Liability</h3>
+      <p>FlightMatch is not responsible for any inaccuracies in flight fare data or issues arising from third-party booking platforms. We do not guarantee the availability of fares or tickets.</p>
+
+      <h3>6. Changes to Terms</h3>
+      <p>We reserve the right to modify these Terms and Conditions at any time. Your continued use of FlightMatch constitutes acceptance of the updated terms.</p>
+
+      <h3>7. Contact Us</h3>
+      <p>If you have any questions about these Terms and Conditions, please contact us at <a href="https://mail.google.com/mail/?view=cm&fs=1&to=flightmatch30@gmail.com" target="_blank">support@flightmatch.com</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 FlightMatch. All rights reserved.</p>
+  </footer>
+</body>
+</html>

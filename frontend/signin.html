@@ -1,0 +1,65 @@
+<div style="display: none;">
+    {% load url}
+    {% load static %}
+  </div>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signin</title> 
+    <link rel="stylesheet" href="{% static 'css/s_in_style.css' %}">
+   </head>
+<body>
+  
+  <div class="wrapper">
+    <h2 style="text-align: center;">Sign in</h2>
+    <form method="post" id="signinForm">
+      <div style="display: none;">
+        {% csrf_token %}
+      </div>
+      <div class="input-box">
+        <input 
+          autocomplete="off"
+          type="text" 
+          id="username"
+          name="username"
+          placeholder="Enter your name" 
+          class="form-control"
+          required
+        >
+      </div>
+      <div class="input-box">
+        <input 
+          autocomplete="off"
+          type="password" 
+          id="password"
+          name="password"
+          placeholder="Enter your password" 
+          class="form-control"
+          required
+        >
+      </div>
+      <div class="input-box button">
+        <input type="Submit" value="Sign in">
+      </div>
+      <div style="text-align: center;" class="text">
+        <h3>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></h3>
+      </div>
+    </form>
+  </div>
+</body>
+<script>
+  document.getElementById("signinForm").addEventListener("submit", function(event) {
+    fetch("{% url 'signup' %}", {
+        method: "POST"
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            alert(data.error); // Show error message
+        }
+    });
+  });
+</script>
+</html>

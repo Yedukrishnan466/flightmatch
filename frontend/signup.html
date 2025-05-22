@@ -1,0 +1,90 @@
+<div style="display: none;">
+    {% load url}
+    {% load static %}
+  </div>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title> 
+    <link rel="stylesheet" href="{% static 'css/s_up_style.css' %}">
+   </head>
+<body>
+  <div class="wrapper">
+    <h2 style="text-align: center;">Sign up</h2>
+    <form method="post" id="signupForm">
+      <div style="display: none;">
+        {% csrf_token %}
+      </div>
+      <div class="input-box">
+        <input 
+          autocomplete="off"
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Enter your name" 
+          class="form-control"
+          required
+        >
+      </div>
+      <div class="input-box">
+        <input
+          autocomplete="off"
+          type="text" 
+          id="email"
+          name="email"
+          placeholder="Enter your email" 
+          class="form-control"
+          required
+        >
+      </div>
+      <div class="input-box">
+        <input 
+          autocomplete="off"
+          type="password" 
+          id="password"
+          name="password"
+          placeholder="Create password" 
+          class="form-control"
+          required
+          >
+      </div>
+      <div class="input-box">
+        <input 
+          autocomplete="off"
+          type="password" 
+          id="confirm_password"
+          name="confirm_password"
+          placeholder="Confirm password" 
+          class="form-control"
+          required
+        >
+      </div>
+      <div class="policy">
+        <input type="checkbox">
+        <h3>I accept all terms & condition</h3>
+      </div>
+      <div class="input-box button">
+        <input type="Submit" value="Sign up Now">
+      </div>
+      <div style="text-align: center;" class="text">
+        <h3>Already have an account? <a href="{% url 'signin' %}">Sign in</a></h3>
+      </div>
+    </form>
+  </div>
+</body>
+<script>
+  document.getElementById("signupForm").addEventListener("submit", function(event) {
+    fetch("{% url 'signup' %}", {
+        method: "POST"
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            alert(data.error); // Show error message
+        }
+    });
+  });
+</script>
+</html>
