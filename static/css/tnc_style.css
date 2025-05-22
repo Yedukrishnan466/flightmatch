@@ -1,0 +1,78 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  header {
+    background-color: #280f81;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+  
+  header p {
+    margin: 5px 0 0;
+    font-size: 1.2rem;
+  }
+  
+  main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .terms-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .terms-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #280f81;
+  }
+  
+  .terms-container h3 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color:  #280f81;
+  }
+  
+  .terms-container p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+  
+  .terms-container a {
+    color: #280f81;
+    text-decoration: none;
+  }
+  
+  .terms-container a:hover {
+    text-decoration: underline;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #280f81;
+    color: #fff;
+    margin-top: 20px;
+  }
+  
+  footer p {
+    margin: 0;
+    font-size: 0.9rem;
+  }

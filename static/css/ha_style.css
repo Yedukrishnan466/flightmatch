@@ -1,0 +1,735 @@
+:root {
+    --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+      "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+      "Source Han Sans CN", sans-serif;
+  }
+  
+  .main-container {
+    overflow: hidden;
+  }
+  
+  .main-container,
+  .main-container * {
+    box-sizing: border-box;
+  }
+  
+  input,
+  select,
+  textarea,
+  button {
+    outline: 0;
+  }
+  body {
+    margin: 0%;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  a{
+    text-decoration: none;
+  }
+  
+  .main-container {
+    position: relative;
+    width: 1920px;
+    height: 1648px;
+    margin: 0 auto;
+    background: #ffffff;
+    overflow: hidden;
+  }
+  .flex-row-c {
+    position: relative;
+    width: 1920px;
+    height: 267px;
+    margin: 0 0 0 0;
+    z-index: 39;
+  }
+  .rectangle {
+    position: absolute;
+    width: 1920px;
+    height: 267px;
+    top: 0;
+    left: 0;
+    background: rgba(19, 74, 55, 0.88);
+    opacity: 0.8;
+    z-index: 21;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+  .regroup {
+    position: absolute;
+    width: 189px;
+    height: 267px;
+    top: 0;
+    left: 1493px;
+    z-index: 34;
+  }
+  .rectangle-1 {
+    position: absolute;
+    width: 91px;
+    height: 35px;
+    top: 38px;
+    left: 0;
+    background: #ffffff;
+    z-index: 31;
+    border-radius: 37px;
+    transition: all 0.3s ease-in-out;
+  }
+  .rectangle-1:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  }
+  .rectangle-1:active {
+    transform: translateY(0px) scale(0.95); /* Slightly shrink */
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15);
+  }
+  .sign-in {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 80%;
+    top: 8.57%;
+    left: 27.47%;
+    color: #243855;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 27.5px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 32;
+  }
+  .rectangle-2 {
+    position: absolute;
+    width: 91px;
+    height: 35px;
+    top: 38px;
+    left: 98px;
+    border: 1px solid #ffffff;
+    z-index: 34;
+    border-radius: 37px;
+    transition: all 0.3s ease-in-out;
+  }
+  .rectangle-2:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  }
+  .rectangle-2:active {
+    transform: translateY(0px) scale(0.95); /* Slightly shrink */
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15);
+  }
+  .sign-up {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 80%;
+    top: 5.71%;
+    left: 23.08%;
+    color: #ffffff;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 27.5px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 35;
+  }
+  .rectangle-3 {
+    position: absolute;
+    width: 197.1px;
+    height: 49px;
+    top: 31px;
+    left: 230px;
+    background: #b6d1de;
+    z-index: 27;
+    border-radius: 35px;
+  }
+  .minimalist-cartoonistic-artistic {
+    position: absolute;
+    width: 48.777px;
+    height: 49px;
+    top: 0;
+    left: 0;
+    background: url('../images/logo.png')
+      no-repeat center;
+    background-size: cover;
+    z-index: 26;
+    border-radius: 36px;
+  }
+  .flight-match {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 57.14%;
+    top: 20.41%;
+    left: 24.2%;
+    color: #000000;
+    font-family: Nunito Sans, var(--default-font-family);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 27.5px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 28;
+  }
+  .welcome {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 10.49%;
+    top: 15.36%;
+    left: 40.78%;
+    color: #ffffff;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 27.5px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 38;
+    transition: letter-spacing 0.3s ease, color 0.2s ease;
+  }
+  .welcome:hover {
+    letter-spacing: 2px; /* Expands text */
+    color: #c2c2c2; /* Changes color */
+  }
+  
+  /* Click Animation */
+  .welcome:active {
+    transform: scale(0.98);
+    color: #000000;
+  }
+  .about {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 10.49%;
+    top: 15.36%;
+    left: 48.91%;
+    color: #ffffff;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 27.5px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 37;
+    transition: letter-spacing 0.3s ease, color 0.2s ease;
+  }
+  .about:hover {
+    letter-spacing: 2px; /* Expands text */
+    color: #c2c2c2;; /* Changes color */
+  }
+  
+  /* Click Animation */
+  .about:active {
+    transform: scale(0.98);
+    color: #000000;
+  }
+  .contact {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 10.49%;
+    top: 15.73%;
+    left: 55.68%;
+    color: #ffffff;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 27.5px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 39;
+    transition: letter-spacing 0.3s ease, color 0.2s ease;
+  }
+  .contact:hover {
+    letter-spacing: 2px; /* Expands text */
+    color: #c2c2c2;; /* Changes color */
+  }
+  
+  /* Click Animation */
+  .contact:active {
+    transform: scale(0.98);
+    color: #000000;
+  }
+  .about-us {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: absolute;
+    width: 238px;
+    height: 60px;
+    top: 130px;
+    left: calc(50% - 119px);
+    color: #ffffff;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 60px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 22;
+  }
+  .rectangle-5 {
+    position: relative;
+    width: 1065px;
+    height: 192px;
+    margin: 26px 0 0 428px;
+    font-size: 0px;
+    z-index: 17;
+    overflow: visible auto;
+    border-radius: 22px;
+    box-shadow: 0 4px 30.8px 0 rgba(0, 0, 0, 0.25);
+  }
+  .who-we-are {
+    display: block;
+    position: relative;
+    height: 30px;
+    margin: 43px 0 0 75px;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 13;
+  }
+  .welcome-to-flightmatch {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    width: 930px;
+    height: 75px;
+    margin: 3px 0 0 75px;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 25.2px;
+    text-align: left;
+    text-overflow: initial;
+    z-index: 17;
+    overflow: hidden;
+  }
+  .rectangle-6 {
+    position: relative;
+    width: 1065px;
+    height: 192px;
+    margin: 26px 0 0 428px;
+    font-size: 0px;
+    z-index: 18;
+    overflow: visible auto;
+    border-radius: 22px;
+    box-shadow: 0 4px 30.8px 0 rgba(0, 0, 0, 0.25);
+  }
+  .what-we-do {
+    display: block;
+    position: relative;
+    height: 30px;
+    margin: 42px 0 0 75px;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 14;
+  }
+  .mission-statement {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    width: 930px;
+    height: 75px;
+    margin: 3px 0 0 75px;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 25.2px;
+    text-align: left;
+    z-index: 18;
+  }
+  .rectangle-7 {
+    position: relative;
+    width: 1065px;
+    height: 240px;
+    margin: 26px 0 0 428px;
+    font-size: 0px;
+    z-index: 20;
+    overflow: visible auto;
+    border-radius: 22px;
+    box-shadow: 0 4px 30.8px 0 rgba(0, 0, 0, 0.25);
+  }
+  .why-choose-us {
+    display: block;
+    position: relative;
+    height: 30px;
+    margin: 47px 0 0 75px;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 16;
+  }
+  .unbeatable-deals {
+    position: relative;
+    width: 930px;
+    height: 100px;
+    margin: 17px 0 0 75px;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 25.2px;
+    text-align: left;
+    z-index: 20;
+  }
+  .unbeatable-deals-8 {
+    position: relative;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 25.2px;
+    text-align: left;
+  }
+  .unbeatable-deals-9 {
+    position: relative;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 25.2px;
+    text-align: left;
+  }
+  .unbeatable-deals-a {
+    position: relative;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 25.2px;
+    text-align: left;
+  }
+  .unbeatable-deals-b {
+    position: relative;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 25.2px;
+    text-align: left;
+  }
+  .unbeatable-deals-c {
+    position: relative;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 25.2px;
+    text-align: left;
+  }
+  .unbeatable-deals-d {
+    position: relative;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 25.2px;
+    text-align: left;
+  }
+  .unbeatable-deals-e {
+    position: relative;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 25.2px;
+    text-align: left;
+  }
+  .reliability {
+    position: relative;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 25.2px;
+    text-align: left;
+  }
+  .rectangle-f {
+    position: relative;
+    width: 1065px;
+    height: 256px;
+    margin: 26px 0 0 428px;
+    font-size: 0px;
+    z-index: 19;
+    overflow: visible auto;
+    border-radius: 22px;
+    box-shadow: 0 4px 30.8px 0 rgba(0, 0, 0, 0.25);
+  }
+  .our-vision {
+    display: block;
+    position: relative;
+    height: 30px;
+    margin: 49px 0 0 75px;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 15;
+  }
+  .flightmatch-belief {
+    position: relative;
+    width: 930px;
+    height: 125px;
+    margin: 3px 0 0 75px;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 25.2px;
+    text-align: left;
+    z-index: 19;
+  }
+  .flightmatch-belief-10 {
+    position: relative;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 25.2px;
+    text-align: left;
+  }
+  .get-you-flying {
+    position: relative;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 25.2px;
+    text-align: left;
+  }
+  .start-journey {
+    position: relative;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 25.2px;
+    text-align: left;
+  }
+  .flex-row-de {
+    position: relative;
+    width: 933px;
+    height: 40px;
+    margin: 74px 0 0 251px;
+    z-index: 7;
+  }
+  .flightmatch {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 40px;
+    top: 0;
+    left: 0;
+    color: #000000;
+    font-family: Righteous, var(--default-font-family);
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 39.734px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 1;
+  }
+  .quick-links {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 20px;
+    top: 4px;
+    left: 462px;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 5;
+  }
+  .legal {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 20px;
+    top: 4px;
+    left: 642px;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 6;
+  }
+  .contact-us {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    height: 20px;
+    top: 4px;
+    left: 854px;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 7;
+  }
+  .flex-row-d {
+    position: relative;
+    width: 491.333px;
+    height: 124px;
+    margin: 0 0 0 713.333px;
+    z-index: 4;
+  }
+  .flex-row-d a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #000000; /* Gold underline */
+    bottom: -3px;
+    left: 50%;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+    transform: translateX(-50%);
+  }
+  
+  .flex-row-d a:hover {
+    color: #5b2c91; /* Gold color on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    text-shadow: 0 0 8px rgb(255, 255, 255); /* Soft glow */
+  }
+  
+  /* Click effect */
+  .flex-row-d a:active {
+    transform: scale(0.95); /* Slight press-down effect */
+  }
+  .home-about-search {
+    display: block;
+    position: absolute;
+    width: 136px;
+    height: 75%;
+    top: 0;
+    left: 0;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 31px;
+    text-align: left;
+    text-overflow: initial;
+    z-index: 2;
+    overflow: hidden;
+  }
+  .home-about-search a{
+    color: #000000;
+  }
+  .regroup-11 {
+    position: absolute;
+    width: 63.36%;
+    height: 100%;
+    top: 0;
+    left: 36.64%;
+    z-index: 4;
+  }
+  .privacy-terms {
+    display: block;
+    position: absolute;
+    width: 181.333px;
+    height: 50%;
+    top: 0;
+    left: 0;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 31px;
+    text-align: left;
+    text-overflow: initial;
+    z-index: 3;
+    overflow: hidden;
+  }
+  .privacy-terms a{
+    color: #000000;
+  }
+  .email-linkedin-instagram {
+    display: block;
+    position: absolute;
+    width: 98.667px;
+    height: 100%;
+    top: 0;
+    left: 68.31%;
+    color: #000000;
+    font-family: Outfit, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 31px;
+    text-align: left;
+    text-overflow: initial;
+    z-index: 4;
+    overflow: hidden;
+  }
+  .email-linkedin-instagram a{
+    color: #000000;
+  }
+  .all-rights-reserved {
+    display: block;
+    position: relative;
+    height: 31px;
+    margin: 128px 0 0 777px;
+    color: #000000;
+    font-family: Rounded Mplus 1c, var(--default-font-family);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 31px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 8;
+  }
+  .rectangle-12 {
+    position: absolute;
+    width: 1920px;
+    height: 180px;
+    top: 0;
+    left: 0;
+    background: url(./assets/images/07513b3f-4831-4b0f-a820-ab33fe96bfad.png)
+      no-repeat center;
+    background-size: cover;
+    z-index: 24;
+  }
+  
